@@ -21,10 +21,9 @@ for (let col = 1; col < input.length; col++) {
 }
 
 console.log("Part 1: ", totalTrees);
-const totals = [];
+const totals = [totalTrees];
 
 const slopes = [
-  { x: 3, y: 1 },
   { x: 1, y: 1 },
   { x: 5, y: 1 },
   { x: 7, y: 1 },
