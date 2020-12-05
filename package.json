@@ -1,0 +1,12 @@
+{
+  "name": "adventOfCode",
+  "version": "1",
+  "description": "advent of code challenges",
+  "main": "app.js",
+  "repository": "none",
+  "author": "djtobia",
+  "license": "MIT",
+  "dependencies": {
+    "node": "^15.3.0"
+  }
+}
