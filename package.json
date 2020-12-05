@@ -6,6 +6,12 @@
   "repository": "none",
   "author": "djtobia",
   "license": "MIT",
+  "scripts": {
+    "day1": "node day1.js",
+    "day2": "node day2.js",
+    "day3": "node day3.js",
+    "day4": "node day4.js"
+  },
   "dependencies": {
     "node": "^15.3.0"
   }
