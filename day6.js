@@ -1,4 +1,4 @@
-const fs = require("fs");
+import { readInput } from "./helper.js";
 
 function countTotalsInMap(totalPeople, answerMap) {
   let count = 0;
@@ -10,7 +10,7 @@ function countTotalsInMap(totalPeople, answerMap) {
   return count;
 }
 
-const input = fs.readFileSync("./input/day6.txt", "utf8").split("\r\n");
+const input = readInput("./input/day6.txt");
 
 let totalCount = 0;
 let allInGroupCount = 0;

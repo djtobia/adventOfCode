@@ -72,19 +72,18 @@ function insideBagCount(bagName, bagMap) {
   return count;
 }
 
-const fs = require("fs");
-
-const input = fs.readFileSync("./input/day7.txt", "utf8").split("\r\n");
+import { readInput } from "./helper.js";
+const input = readInput("./input/day7.txt");
 
 //make bagMap from rules
 const bagMap = new Map();
 input.forEach((rule) => {
   if (rule.includes("no other")) {
-    bags = rule.split("bags");
+    let bags = rule.split("bags");
     const outerBag = new Bag(bags[0].trim());
     bagMap.set(bags[0].trim(), outerBag);
   } else {
-    bags = rule.split(",");
+    let bags = rule.split(",");
     const outerBagName = bags[0].split("bags")[0].trim();
     let innerBags = [];
     //parse out first inner bag from first string, loop will do the others

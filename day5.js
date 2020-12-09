@@ -1,6 +1,6 @@
-const fs = require("fs");
+import { readInput } from "./helper.js";
 
-const input = fs.readFileSync("./input/day5.txt", "utf8").split("\r\n");
+const input = readInput("./input/day5.txt");
 const allSeatIds = [];
 let highestSeatId = 0;
 for (let i = 0; i < input.length; i++) {

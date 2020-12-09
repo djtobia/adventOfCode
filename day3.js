@@ -1,7 +1,6 @@
-const fs = require("fs");
-const { isIPv4 } = require("net");
+import { readInput } from "./helper.js";
 
-const input = fs.readFileSync("./input/day3.txt", "utf8").split("\r\n");
+const input = readInput("./input/day3.txt");
 
 const cols = input[0].length;
 
