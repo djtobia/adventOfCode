@@ -1,8 +1,12 @@
 //bag class
 class Bag {
-  constructor(bagType, bags = null) {
+  constructor(bagType, bags = []) {
     this.bagType = bagType;
     this.innerBags = bags;
+  }
+
+  getInner(index) {
+    return this.innerBags[index];
   }
 }
 // inner bag class
@@ -14,6 +18,10 @@ class InnerBag {
 }
 
 //parse function for parsing out inner bags
+/**
+ *
+ * @param {string} bagString
+ */
 function parseInnerBag(bagString) {
   //first char is num
   const num = parseInt(bagString.charAt(0));
@@ -26,12 +34,43 @@ function parseInnerBag(bagString) {
   //split on bag, grab index 0
 }
 
-// TODO: iterate over map.
-// TODO: for each entry in map, do the following:
-//1: TODO: if bag can already hold a shiny gold bag, increment count
-//2: TODO: if bag cannot hold one itself, for each of its inner bags, retrieve its mapped entry, and check if that inner bag can hold a shiny bag
-//3: TODO: recurse if needed.
-// ONCE SHINY GOLD FOUND go back to base case and increment count, then step to next item in maploop
+/**
+ *
+ * @param {string} bagName
+ * @param {Map} bagMap
+ */
+function checkForShinyGoldBag(bagName, bagMap) {
+  let bag = bagMap.get(bagName);
+  for (let i = 0; i < bag.innerBags.length; i++) {
+    let innerBag = bag.getInner(i);
+    if (innerBag.name === "shiny gold") {
+      return 1;
+    } else {
+      if (checkForShinyGoldBag(innerBag.name, bagMap)) {
+        return 1;
+      }
+    }
+  }
+  return 0;
+}
+
+/**
+ *
+ * @param {string} bagName
+ * @param {Map} bagMap
+ */
+function insideBagCount(bagName, bagMap) {
+  let bag = bagMap.get(bagName);
+  if (bag.innerBags.length === 0) {
+    return 0;
+  }
+  let count = 0;
+  for (let i = 0; i < bag.innerBags.length; i++) {
+    const num = bag.innerBags[i].num;
+    count += num + num * insideBagCount(bag.innerBags[i].name, bagMap);
+  }
+  return count;
+}
 
 const fs = require("fs");
 
@@ -43,7 +82,7 @@ input.forEach((rule) => {
   if (rule.includes("no other")) {
     bags = rule.split("bags");
     const outerBag = new Bag(bags[0].trim());
-    bagMap.set(outerBag, new Bag(outerBag));
+    bagMap.set(bags[0].trim(), outerBag);
   } else {
     bags = rule.split(",");
     const outerBagName = bags[0].split("bags")[0].trim();
@@ -56,5 +95,10 @@ input.forEach((rule) => {
     bagMap.set(outerBagName, new Bag(outerBagName, innerBags));
   }
 });
-
-console.log(bagMap.size);
+let count = 0;
+for (let key of bagMap.keys()) {
+  count += checkForShinyGoldBag(key, bagMap);
+}
+console.log("Part 1 :", count);
+console.log("Part 2 :", insideBagCount("shiny gold", bagMap));
+// console.log(checkForShinyGoldBag(bagMap.keys().next().value, bagMap, 0));
