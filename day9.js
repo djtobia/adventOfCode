@@ -1,4 +1,4 @@
-import { readInput } from "./helper.js";
+import { readInput } from "./helpers/fileReader.js";
 
 const input = readInput("./input/day9.txt");
 let num = 0;

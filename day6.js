@@ -1,4 +1,4 @@
-import { readInput } from "./helper.js";
+import { readInput } from "./helpers/fileReader.js";
 
 function countTotalsInMap(totalPeople, answerMap) {
   let count = 0;

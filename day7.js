@@ -72,7 +72,7 @@ function insideBagCount(bagName, bagMap) {
   return count;
 }
 
-import { readInput } from "./helper.js";
+import { readInput } from "./helpers/fileReader.js";
 const input = readInput("./input/day7.txt");
 
 //make bagMap from rules

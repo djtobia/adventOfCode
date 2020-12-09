@@ -1,4 +1,4 @@
-import { readInput } from "./helper.js";
+import { readInput } from "./helpers/fileReader.js";
 const input = readInput("./input/day2.txt");
 let countCorrectPart1 = 0;
 //first split on space, then split first one on - and grab the first char of the second one
@@ -13,7 +13,7 @@ for (let i = 0; i < input.length; i++) {
     countCorrectPart1++;
   }
 }
-console.log("part 1", countCorrectPart1);
+console.log("Part 1 :", countCorrectPart1);
 //part 2
 let countCorrectPart2 = 0;
 for (let i = 0; i < input.length; i++) {
@@ -29,4 +29,4 @@ for (let i = 0; i < input.length; i++) {
     countCorrectPart2++;
   }
 }
-console.log("part 2", countCorrectPart2);
+console.log("Part 2 :", countCorrectPart2);
