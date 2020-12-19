@@ -26,6 +26,7 @@ console.log("Part 1 :", oneDiffs * threeDiffs);
 input.unshift(0);
 
 input.push(input[input.length - 1] + 3);
+
 let pow7 = 0;
 let pow2 = 0;
 for (let i = 1; i < input.length - 1; i++) {
