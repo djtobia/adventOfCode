@@ -22,6 +22,9 @@ fullInput.forEach((line) => {
 If a seat is empty (L) and there are no occupied seats adjacent to it, the seat becomes occupied.
 If a seat is occupied (#) and four or more seats adjacent to it are also occupied, the seat becomes empty.
 Otherwise, the seat's state does not change.
+
+PART 2 RULES
+Same as above, but five or more seats adjacent for rule 2
 */
 while (true) {
   const tempFloor = changePlacesPart1(floor);
