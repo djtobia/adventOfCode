@@ -23,25 +23,21 @@ while (!nextEarliest) {
 
 console.log("Part 1:", busId * (nextEarliest - earliestTimestamp));
 
-//find first large timestamp that is divisible by the first bus
-let timestamp = 0;
-let found = false;
-
 let allBusses = input[1].split(",");
-allBusses = allBusses.map(val => {
-  return val === 'x' ? 1 : parseInt(val);
+allBusses = allBusses.map((val) => {
+  return val === "x" ? 1 : parseInt(val);
 });
 
-console.log('Part 2:',
+console.log(
+  "Part 2:",
   allBusses.slice(1).reduce(
     ([last, multiplier], current, i) => {
       for (let found = +last; ; found += multiplier) {
-        if ((found + i + 1)%current === 0) {
-          return [found, multiplier*current];
+        if ((found + i + 1) % current === 0) {
+          return [found, multiplier * current];
         }
       }
     },
     [allBusses[0], allBusses[0]]
   )[0]
 );
-
