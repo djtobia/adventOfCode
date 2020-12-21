@@ -24,61 +24,24 @@ while (!nextEarliest) {
 console.log("Part 1:", busId * (nextEarliest - earliestTimestamp));
 
 //find first large timestamp that is divisible by the first bus
-let timestamp = 100000050000000;
+let timestamp = 0;
 let found = false;
 
 let allBusses = input[1].split(",");
-//adder is the largest number in the array
-let adder = 0;
-let indexOfLargest = 0;
-for (let i = 0; i < allBusses.length; i++) {
-  if (allBusses[i] === "x") {
-    continue;
-  }
-  const val = parseInt(allBusses[i]);
-  if (val > adder) {
-    adder = val;
-    indexOfLargest = i;
-  }
-}
+allBusses = allBusses.map(val => {
+  return val === 'x' ? 1 : parseInt(val);
+});
 
-while (true) {
-  if (timestamp % adder === 0) {
-    break;
-  }
-  timestamp++;
-}
-const countNeeded = allBusses.filter((id) => {
-  return id !== "x";
-}).length;
+console.log('Part 2:',
+  allBusses.slice(1).reduce(
+    ([last, multiplier], current, i) => {
+      for (let found = +last; ; found += multiplier) {
+        if ((found + i + 1)%current === 0) {
+          return [found, multiplier*current];
+        }
+      }
+    },
+    [allBusses[0], allBusses[0]]
+  )[0]
+);
 
-while (!found) {
-  let count = 0;
-  // console.log(timestamp);
-  for (let i = 0; i < allBusses.length; i++) {
-    if (allBusses[i] === "x") {
-      continue;
-    }
-    if ((timestamp - indexOfLargest + i) % parseInt(allBusses[i]) === 0) {
-      count++;
-    } else {
-      break;
-    }
-  }
-  if (count === countNeeded) {
-    found = true;
-  } else {
-    //find next best timestamp
-    timestamp += adder;
-    while (
-      (timestamp - indexOfLargest) % allBusses[0] !== 0 &&
-      (timestamp - indexOfLargest + allBusses[allBusses.length - 1]) %
-        allBusses[allBusses.length - 1] !==
-        0
-    ) {
-      timestamp += adder;
-    }
-  }
-}
-
-console.log("Part 2:", timestamp - indexOfLargest);
