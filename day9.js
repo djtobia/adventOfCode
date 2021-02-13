@@ -14,7 +14,7 @@ for (let i = 25; i < input.length; i++) {
     }
   }
   if (!found) {
-    console.log("Part 1:", num);
+    console.log("Part 1 :", num);
     break;
   }
 }
