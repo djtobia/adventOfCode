@@ -18,7 +18,7 @@
     "day9": "node day9.js & python day9.py",
     "day10": "node day10.js & python day10.py",
     "day11": "node day11.js & python day11.py",
-    "day12": "node day12.js",
+    "day12": "node day12.js & python day12.py",
     "day13": "node day13.js",
     "day14": "node day14.js"
   },
