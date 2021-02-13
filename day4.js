@@ -1,5 +1,5 @@
 import { readInput } from "./helpers/fileReader.js";
-
+console.log('JS')
 const input = readInput("./input/day4.txt", /^(\r\n)/gm);
 
 const requiredFieldsRegexPart1 = [
@@ -27,7 +27,7 @@ input.forEach((passport) => {
   }
 });
 
-console.log("Part 1: ", validPassports);
+console.log("Part 1 : ", validPassports);
 validPassports = 0;
 
 //part 2
@@ -127,4 +127,4 @@ input.forEach((passport) => {
   }
 });
 
-console.log("Part 2: ", validPassports);
+console.log("Part 2 : ", validPassports);

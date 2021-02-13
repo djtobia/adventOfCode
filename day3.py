@@ -1,4 +1,5 @@
 from functools import reduce
+print('Python')
 file = open('./input/day3.txt')
 file = [x.strip() for x in file.readlines()]
 cols = len(file[0])
@@ -33,7 +34,7 @@ def part1():
                 x = 0
         if (file[col][x] == "#"):
             totalTrees += 1
-    print("Part 1: {}".format(totalTrees))
+    print("Part 1 : {}".format(totalTrees))
     return totalTrees
 
 
@@ -50,7 +51,7 @@ def part2(totals, slopes):
                 totalTrees += 1
         totals.append(totalTrees)
     totalTreesAllSlopes = reduce(lambda x, y: (x * y), totals)
-    print("Part 2: {}".format(totalTreesAllSlopes))
+    print("Part 2 : {}".format(totalTreesAllSlopes))
 
 
 part2([part1()], slopes)

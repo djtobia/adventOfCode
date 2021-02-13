@@ -1,5 +1,7 @@
 import { readInput } from "./helpers/fileReader.js";
 
+
+console.log("JS")
 const expense = readInput("./input/day1.txt");
 //find which 2 items add up to 2020
 

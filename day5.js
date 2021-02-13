@@ -1,5 +1,5 @@
 import { readInput } from "./helpers/fileReader.js";
-
+console.log('JS')
 const input = readInput("./input/day5.txt");
 const allSeatIds = [];
 let highestSeatId = 0;
@@ -62,4 +62,4 @@ for (let i = 0; i < allSeatIds.length; i++) {
   }
   prev = curr;
 }
-console.log("Part 2:", mySeat);
+console.log("Part 2 :", mySeat);

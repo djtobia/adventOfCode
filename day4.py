@@ -1,4 +1,5 @@
 import re
+print('Python')
 file = open('./input/day4.txt')
 file = [x.strip() for x in file.readlines()]
 
@@ -30,7 +31,7 @@ def part1():
 
         if (fieldCount == totalNeeded):
             validPassports += 1
-    print('Part 1: {}'.format(validPassports))
+    print('Part 1 : {}'.format(validPassports))
 
 
 def part2():
@@ -83,11 +84,11 @@ def part2():
                     break
         passportId = re.search(requiredWords[6], passport)
         if (passportId is not None):
-            if (re.search("\d{9}", passportId.group()) is not None):
+            if (re.search(r"\d{9}", passportId.group()) is not None):
                 fieldCount += 1
         if (fieldCount == totalNeeded):
             validPassports += 1
-    print("Part 2: {}".format(validPassports))
+    print("Part 2 : {}".format(validPassports))
 
 
 part1()

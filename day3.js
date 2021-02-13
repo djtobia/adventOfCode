@@ -1,5 +1,5 @@
 import { readInput } from "./helpers/fileReader.js";
-
+console.log("JS")
 const input = readInput("./input/day3.txt");
 
 const cols = input[0].length;
@@ -19,7 +19,7 @@ for (let col = 1; col < input.length; col++) {
   }
 }
 
-console.log("Part 1: ", totalTrees);
+console.log("Part 1 : ", totalTrees);
 const totals = [totalTrees];
 
 const slopes = [
@@ -48,5 +48,5 @@ slopes.forEach((slope) => {
 const totalTreesAllSlopes = totals.reduce((x, y) => {
   return x * y;
 });
-console.log("Part 2: ", totalTreesAllSlopes);
+console.log("Part 2 : ", totalTreesAllSlopes);
 //2783613000

@@ -1,4 +1,5 @@
 from math import floor, ceil
+print('Python')
 file = open('./input/day5.txt')
 file = [x.strip() for x in file.readlines()]
 
@@ -38,7 +39,7 @@ def part1():
         allSeatIds.append(seatId)
         if highestSeatId < seatId:
             highestSeatId = seatId
-    print("Part 1: {}".format(highestSeatId))
+    print("Part 1 : {}".format(highestSeatId))
 
 
 def part2():
@@ -51,7 +52,7 @@ def part2():
         if (curr - prev > 1):
             mySeat = curr - 1
         prev = curr
-    print("Part 2: {}".format(mySeat))
+    print("Part 2 : {}".format(mySeat))
 
 
 part1()

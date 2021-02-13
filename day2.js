@@ -1,4 +1,5 @@
 import { readInput } from "./helpers/fileReader.js";
+console.log('JS')
 const input = readInput("./input/day2.txt");
 let countCorrectPart1 = 0;
 //first split on space, then split first one on - and grab the first char of the second one
