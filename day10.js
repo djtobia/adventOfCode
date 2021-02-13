@@ -39,4 +39,4 @@ for (let i = 1; i < input.length - 1; i++) {
   }
 }
 
-console.log("Part 2:", Math.pow(2, pow2) * Math.pow(7, pow7));
+console.log("Part 2 :", Math.pow(2, pow2) * Math.pow(7, pow7));
