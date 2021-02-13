@@ -31,7 +31,7 @@ function part1() {
       }
     }
   }
-  console.log("Part 1:", acc);
+  console.log("Part 1 :", acc);
 }
 
 /**
@@ -81,7 +81,7 @@ function part2() {
       }
     }
   }
-  console.log("Part 2:", acc);
+  console.log("Part 2 :", acc);
 }
 part1();
 part2();
