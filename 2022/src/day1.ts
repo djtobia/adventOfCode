@@ -2,7 +2,6 @@ import { readInput } from "./helpers/filereader";
 const input = readInput("./input/day1.txt").map((e: string) => parseInt(e));
 const elfTotals: number[] = [];
 let runningTotal = 0;
-
 input.forEach((calories) => {
   if (calories > 0) {
     runningTotal += calories;
