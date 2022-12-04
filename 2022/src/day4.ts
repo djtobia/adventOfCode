@@ -5,11 +5,15 @@ interface LineInfo {
   leftInfo: number[];
   rightInfo: number[];
   leftLarger: boolean;
-  leftLength: number;
-  rightLength: number;
+  lengths: number[];
   rangeArray: number[];
 }
 
+/**
+ *
+ * @param line: string
+ * @returns LineInfo
+ */
 const getLineInfo = (line: string) : LineInfo => {
   const [left, right] = line.split(',');
   const [leftStart, leftEnd] = left.split('-').map(num => parseInt(num));
@@ -23,39 +27,33 @@ const getLineInfo = (line: string) : LineInfo => {
     rangeArray.push(i);
   }
 
-  return {leftInfo: [leftStart, leftEnd], rightInfo: [rightStart, rightEnd], leftLarger, leftLength, rightLength, rangeArray }
+  return {
+    leftInfo: [leftStart, leftEnd],
+    rightInfo: [rightStart, rightEnd],
+    leftLarger,
+    lengths: [leftLength, rightLength],
+    rangeArray
+  };
 }
 
 let count = 0;
-input.forEach((line: string) => {
-  const {leftInfo, rightInfo, leftLarger, leftLength, rightLength, rangeArray} = getLineInfo(line);
+const partTwo: number[] = [];
+for(let lineNum = 0; lineNum < input.length; lineNum++) {
+  const {leftInfo, rightInfo, leftLarger, lengths, rangeArray} = getLineInfo(input[lineNum]);
   let contains = 0;
   for(let i = (leftLarger ? rightInfo[0] : leftInfo[0]); i <= (leftLarger ? rightInfo[1] : leftInfo[1]); i++) {
     if (rangeArray.includes(i)) {
       contains++;
-    } else {
-      break;
+      if (!partTwo.includes(lineNum)) {
+        partTwo.push(lineNum);
+      }
     }
   }
-  if (contains === (leftLarger ? rightLength : leftLength)) {
+  if (contains === (leftLarger ? lengths[1] : lengths[0])) {
     count++;
   }
 
-});
+}
 
 console.log("Part 1", count);
-
-count = 0;
-
-input.forEach((line: string) => {
-  const {leftInfo, rightInfo, leftLarger, rangeArray} = getLineInfo(line);
-
-  for(let i = (leftLarger ? rightInfo[0] : leftInfo[0]); i <= (leftLarger ? rightInfo[1] : leftInfo[1]); i++) {
-    if (rangeArray.includes(i)) {
-      count++;
-      break;
-    }
-  }
-})
-
-console.log("Part 2", count);
+console.log("Part 2", partTwo.length);
