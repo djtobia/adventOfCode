@@ -1,6 +1,6 @@
-import createTwoDArray from "./helpers/TwoDArrayBuilder";
+import { createTwoDArrayFromInput } from "./helpers/TwoDArrayBuilder";
 import { Tree, checkIsVisible } from "./helpers/Tree";
-const trees: Tree[][] = createTwoDArray("day8").map(trees => trees.map(tree => new Tree(tree)));
+const trees: Tree[][] = createTwoDArrayFromInput("day8").map(trees => trees.map(tree => new Tree(tree)));
 
 
 // set visible to the amount of outer trees there are.
